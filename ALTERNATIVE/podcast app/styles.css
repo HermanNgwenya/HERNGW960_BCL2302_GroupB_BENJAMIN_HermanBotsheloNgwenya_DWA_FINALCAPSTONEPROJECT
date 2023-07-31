@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    color: blanchedalmond;
+    background: rgb(39, 38, 38);
+    
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    height: 85px;
+    background: linear-gradient(90deg, #04351a 10%, #20b14c 90%);
+    color: black;
+    padding: 20px;
+}
+
+.header--image {
+    height: 100%;
+    margin-right: 6px;
+    
+}
+
+.showpreview {
+    width: 200px;
+    font-size: 12px;
+    flex: 0 0 auto;        
+    display: flex;         
+    flex-direction: column;
+    margin-left: 9px;
+    margin-top: 9px;
+    gap: 20px;
+    overflow-x: auto;
+    overflow-y: auto;
+    flex-wrap: wrap;
+
+}
+
+
+.showpreview--image {
+    width: 100%;
+    border-radius: 9px;
+    margin-bottom: 9px;
+}
