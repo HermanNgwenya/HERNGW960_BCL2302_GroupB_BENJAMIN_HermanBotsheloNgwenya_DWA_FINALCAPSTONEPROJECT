@@ -10,11 +10,12 @@ const Episode = ({ episode }) => {
   return (
     <div className="episode">
               <img 
-                src={seasons.episodes.image}
-                alt={seasons.episodes.title}
+                src={episode.image}
+                alt={episode.title}
                 className="showpreview--image"
               />
-      <h4>{seasons.episodes.title}</h4>
+              <h4>{episode.title}</h4>
+              <p>Description: {episode.description}</p>
       {/* Render other episode details as needed */}
       <button onClick={handlePlayEpisode}>Play</button>
     </div>

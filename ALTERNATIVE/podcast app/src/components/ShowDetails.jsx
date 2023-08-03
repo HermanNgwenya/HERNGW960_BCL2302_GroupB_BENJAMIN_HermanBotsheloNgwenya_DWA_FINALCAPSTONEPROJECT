@@ -1,9 +1,14 @@
 
 import React, { useState, useEffect } from "react";
+// import { useHistory } from "react-router-dom";
 import LoadingSpinner from "./LoadingSpinner";
 import Episode from "./Episode";
 
+
 const ShowDetails = ({ showId }) => {
+
+//   const history = useHistory();
+
   const [showData, setShowData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedSeason, setSelectedSeason] = useState(null);
@@ -22,8 +27,13 @@ const ShowDetails = ({ showId }) => {
       });
   }, [showId]);
 
-  const handleSeasonChange = (seasonNumber) => {
-    setSelectedSeason(seasonNumber);
+  const handleSeasonChange = (season) => {
+    setSelectedSeason(season);
+  };
+
+  const handleEpisodePreview = (episodeId) => {
+    // Navigate to the episode page with the appropriate showId and episodeId
+    history.push(`/show/${showId}/episode/${episodeId}`);
   };
 
   return (
@@ -44,7 +54,6 @@ const ShowDetails = ({ showId }) => {
           {showData.seasons && (
             <div>
               <h4>Seasons:</h4>
-              <ul>
                 {showData.seasons.map((season) => (
                   <div className="season--preview">
                     <h4>{season.title}</h4>
@@ -52,34 +61,19 @@ const ShowDetails = ({ showId }) => {
                       src={season.image}
                       alt={season.title}
                       className="season--image"
+                      onClick={() => handleSeasonChange(season.episodes)}
                     ></img>
-                    
+                    <p>Episodes: {season.episodes.length}</p>
 
                   </div>
                 ))}
-              </ul>
             </div>
           )}
-            {/* <img src={show.image} 
-            alt={show.title} 
-            className="showpreview--image"
-            // Add an onClick event to display season data when the image is clicked
-            onClick={() => handleShowClick(show.id)}
-            />
-            <h2>{show.title}</h2>
-            {/* <p>{show.description}</p> */}
-            {/* <h4>Seasons: {show.seasons}</h4>
 
-            <p>Genre: {getGenreTitles(show.genres)}</p>
-
-            <p>Date Apdated : {formatReadableDate(show.updated)}</p> */}
-          {/* Render episodes for the selected season */}
-          {selectedSeason !== null && (
-            <div key={season.episode}>
-              <h3>Season {selectedSeason} Episodes:</h3>
-              {showData.episodes
-                .filter((episode) => episode.season === selectedSeason)
-                .map((episode) => (
+          {selectedSeason && (
+            <div>
+              <h3>Season {selectedSeason.number} Episodes:</h3>
+              {selectedSeason.episodes.map((episode) => (
                   <Episode key={episode.id} episode={episode} />
                 ))}
             </div>

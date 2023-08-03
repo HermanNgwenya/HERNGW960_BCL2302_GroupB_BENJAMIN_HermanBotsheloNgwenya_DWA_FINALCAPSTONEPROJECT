@@ -84,7 +84,7 @@ export default function Preview() {
   
 
   return (
-    <div className="showpreview">
+    <div >
 
     <input
       type="text"
@@ -105,7 +105,7 @@ export default function Preview() {
         <LoadingSpinner /> // Show the loading spinner while data is being loaded
       ) : (
           showData.map((show) => (
-          <div key={show.id}>
+          <div key={show.id} className="showpreview">
             <img src={show.image} 
             alt={show.title} 
             className="showpreview--image"
