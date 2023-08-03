@@ -46,3 +46,15 @@ body {
     border-radius: 9px;
     margin-bottom: 9px;
 }
+
+.season--image {
+    width: 70%;
+    border: 6px;
+}
+
+.season--preview {
+    display: flex;
+    flex-direction: column;
+    margin-left: 9px;
+    margin-top: 9px;
+}
