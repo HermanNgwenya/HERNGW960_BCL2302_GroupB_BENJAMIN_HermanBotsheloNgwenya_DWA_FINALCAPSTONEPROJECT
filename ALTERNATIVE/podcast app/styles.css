@@ -55,6 +55,8 @@ body {
 }
 
 .season--preview {
+    width: 200px;
+    font-size: 12px;
     display: flex;
     flex-direction: column;
     margin-left: 9px;

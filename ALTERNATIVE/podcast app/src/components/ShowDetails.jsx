@@ -1,13 +1,12 @@
-
+//ShowDetails.jsx
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import LoadingSpinner from "./LoadingSpinner";
 import Episode from "./Episode";
+import EpisodePage from "./EpisodePage";
 
 
 const ShowDetails = ({ showId }) => {
-
-  const history = useHistory();
 
   const [showData, setShowData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -27,13 +26,8 @@ const ShowDetails = ({ showId }) => {
       });
   }, [showId]);
 
-  const handleSeasonChange = (season) => {
-    setSelectedSeason(season);
-  };
-
-  const handleEpisodePreview = (episodeId) => {
-    // Navigate to the episode page with the appropriate showId and episodeId
-    history.push(`/show/${showId}/episode/${episodeId}`);
+  const handleSeasonChange = (episodes) => {
+    setSelectedSeason(episodes);
   };
 
   return (
@@ -49,10 +43,12 @@ const ShowDetails = ({ showId }) => {
                />
           <h2>{showData.title}</h2>
           <p>{showData.description}</p>
+          <p>{showData.id}</p>
+          
 
           {/* Render season selection mechanism */}
           {showData.seasons && (
-            <div>
+            <div key={showData.id}>
               <h4>Seasons:</h4>
                 {showData.seasons.map((season) => (
                   <div className="season--preview">
@@ -71,10 +67,10 @@ const ShowDetails = ({ showId }) => {
           )}
 
           {selectedSeason && (
-            <div>
-              <h3>Season {selectedSeason.number} Episodes:</h3>
-              {selectedSeason.episodes.map((episode) => (
-                  <Episode key={episode.id} episode={episode} />
+            <div key={selectedSeason}>
+              <h3>Season  Episodes:</h3>
+              {selectedSeason.map((episode) => (
+                  <EpisodePage key={episode.id} episode={episode.title} />
                 ))}
             </div>
           )}

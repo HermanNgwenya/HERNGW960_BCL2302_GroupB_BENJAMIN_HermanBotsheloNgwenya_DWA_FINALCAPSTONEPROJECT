@@ -4,6 +4,7 @@ import LoadingSpinner from "./LoadingSpinner";
 import ShowDetails from "./ShowDetails";
 
 
+
 const genreTitles = [
     "Personal Growth",
     "True Crime and Investigative Journalism",
@@ -22,6 +23,7 @@ export default function Preview() {
   const [selectedShowId, setSelectedShowId] = useState(null);
   const [sortOrder, setSortOrder] = useState("asc");
   const [filterTitle, setFilterTitle] = useState("");
+  const [isSeasonPreview, setIsSeasonPreview] = useState(false);
 
   useEffect(() => {
     // Set isLoading to true while initial data is being loaded
@@ -81,7 +83,6 @@ export default function Preview() {
     const filteredShows = showData.filter((show) =>
       show.title.toLowerCase().includes(filterTitle.toLowerCase())
     );
-  
 
   return (
     <div >
@@ -110,7 +111,7 @@ export default function Preview() {
             alt={show.title} 
             className="showpreview--image"
             // Add an onClick event to display season data when the image is clicked
-            onClick={() => handleShowClick(show.id)}
+            onClick={() => handleShowClick(show.id)}         
             />
             <h2>{show.title}</h2>
             {/* <p>{show.description}</p> */}
