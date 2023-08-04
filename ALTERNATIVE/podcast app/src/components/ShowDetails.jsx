@@ -1,13 +1,13 @@
 
 import React, { useState, useEffect } from "react";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import LoadingSpinner from "./LoadingSpinner";
 import Episode from "./Episode";
 
 
 const ShowDetails = ({ showId }) => {
 
-//   const history = useHistory();
+  const history = useHistory();
 
   const [showData, setShowData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
