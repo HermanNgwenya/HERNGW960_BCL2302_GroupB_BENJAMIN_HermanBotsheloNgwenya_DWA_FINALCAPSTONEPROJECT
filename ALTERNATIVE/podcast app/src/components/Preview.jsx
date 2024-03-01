@@ -107,23 +107,25 @@ export default function Preview() {
         <LoadingSpinner /> // Show the loading spinner while data is being loaded
       ) : (
           showData.map((show) => (
-          <div key={show.id} className="showpreview">
-            <img src={show.image} 
-            alt={show.title} 
-            className="showpreview--image"
-            // Add an onClick event to display season data when the image is clicked
-            onClick={() => handleShowClick(show.id)}         
-            />
-            <h2>{show.title}</h2>
-            {/* <p>{show.description}</p> */}
-            <h4>Seasons: {show.seasons}</h4>
+          <container className="preview-container">
+                  <div key={show.id} className="showpreview">
+                    <img src={show.image} 
+                    alt={show.title} 
+                    className="showpreview--image"
+                    // Add an onClick event to display season data when the image is clicked
+                    onClick={() => handleShowClick(show.id)}         
+                    />
+                    <h2>{show.title}</h2>
+                    {/* <p>{show.description}</p> */}
+                    <h4>Seasons: {show.seasons}</h4>
 
-            <p>Genre: {getGenreTitles(show.genres)}</p>
+                    <p>Genre: {getGenreTitles(show.genres)}</p>
 
-            <p>Date Apdated : {formatReadableDate(show.updated)}</p>
-            {/* Render other properties of the show as needed */}
+                    <p>Date Apdated : {formatReadableDate(show.updated)}</p>
+                    {/* Render other properties of the show as needed */}
 
-          </div>
+                  </div>
+          </container>
         ))
       )}
 
