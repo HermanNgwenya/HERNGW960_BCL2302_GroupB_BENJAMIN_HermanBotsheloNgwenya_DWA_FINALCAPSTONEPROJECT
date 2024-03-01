@@ -14,33 +14,33 @@ body {
     display: flex;
     align-items: center;
     height: 85px;
-    background: linear-gradient(90deg, #04351a 10%, #20b14c 90%);
+    background: #20b14c ;
     color: black;
     padding: 20px;
 }
 
-.header--image {
+/* .header--image {
     max-width: 100px;
     max-height: 100px;
     margin-right: 25px;
     
-}
+} */
 
 .showpreview {
     width: 200px;
     font-size: 12px;
-    flex: 0 0 auto;        
-    display: flex;         
-    flex-direction: column;
-    margin-left: 9px;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: row;
+    margin-left: 60px;
     margin-top: 9px;
-    /* gap: 20px; */
+    /* gap: 20px;  */
     overflow-x: auto;
     overflow-y: auto;
     flex-wrap: wrap;
-    box-shadow: #04351a;
+    /* box-shadow: #04351a; */
     border: #20b14c;
-
+    border-width: 5px;
 }
 
 
